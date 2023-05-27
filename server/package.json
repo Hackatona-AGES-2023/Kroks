@@ -5,6 +5,7 @@
     "dev": "nodemon src/index.ts"
   },
   "dependencies": {
+    "@fastify/cors": "^8.3.0",
     "dotenv": "^16.0.3",
     "fastify": "^4.17.0",
     "openai": "^3.2.1"
