@@ -17,25 +17,28 @@ server.post("/image", async (req, res) => {
   const promises = [];
 
   for (const url of body) {
-    promises.push(fetch(endpoint + '/vision/v3.2/analyze?visualFeatures=Description&language=pt', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': key ?? ''
-      },
-
-      body: JSON.stringify({
-        url
-      })
-    }));
+    promises.push(
+      fetch(
+        endpoint +
+          "/vision/v3.2/analyze?visualFeatures=Description&language=pt",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Ocp-Apim-Subscription-Key": key ?? "",
+          },
+          body: JSON.stringify({
+            url,
+          }),
+        }
+      )
+    );
   }
-
-  const responses =  await Promise.all(promises)
+  const responses = await Promise.all(promises);
   const jsons = await Promise.all(responses.map((r) => r.json()));
 
   return jsons.map((j) => j.description.captions[0].text);
 });
-
 
 server.register(cors, {
   // put your options here
@@ -44,15 +47,14 @@ server.register(cors, {
 const openai = new OpenAIApi(configuration);
 
 server.post("/dom", async (req, res) => {
+
   const messages: ChatCompletionRequestMessage[] = [];
 
   messages.push({
     role: "system",
     content:
-      "Você é um assistente virtual de acessibilidade. Você pode adicionar arias e roles, para tornar os htmls enviados mais acessíveis, e trocar tags se necessário. Só retorne código. Nenhum texto explicando o que foi feito, e se o código já estiver nos conformes só o reenvie",
+      "Você é um assistente virtual de acessibilidade, você adiciona arias e roles, para tornar os htmls enviados mais acessíveis, e trocar tags se necessário, só retorne código, nenhum texto explicando o que foi feito",
   });
-
-  let count = 0;
 
   for (const reqElement of req.body as string[]) {
     messages.push({
@@ -70,7 +72,7 @@ server.post("/dom", async (req, res) => {
     }
   }
 
-  return messages.filter((m) => m.role == "assistant").map((n) => n.content);
+  return { content: messages.filter((m) => m.role == "assistant").pop()?.content };
 });
 
 server.listen({ port: 3000 }, (err, address) => {
