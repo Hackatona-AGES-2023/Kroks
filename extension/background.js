@@ -5,11 +5,15 @@ function reddenPage() {
   const body = document.body.innerHTML;
   const bodyArray = [];
 
-  for (let i = 0, j = 0; i < bodyArray.length; i++) {
-    
+  // separate body into array of 1900 caracters
+  for (let i = 0; i < body.length; i += 1900) {
+    bodyArray.push(body.substring(i, i + 1900));
   }
 
-  console.log(bodyArray)
+  fetch("http://localhost:3000/test", {
+    method: "POST",
+    body: JSON.stringify(bodyArray),
+  })
 }
 
 chrome.action.onClicked.addListener((tab) => {
