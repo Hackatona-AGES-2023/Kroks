@@ -1,0 +1,15 @@
+{
+    "name": "Include Everywhere",
+    "description": "A simple accessibility tool",
+    "version": "1.0",
+    "manifest_version": 2,
+    "permissions": ["tabs", "activeTab"],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "browser_action": {
+      "default_popup": "index.html",
+      "default_title": "Include Everywhere"
+    }
+  }
