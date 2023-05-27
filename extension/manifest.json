@@ -1,11 +1,13 @@
 {
-  "name": "Page Redder",
-  "action": {},
+  "name": "Include Everywhere",
   "manifest_version": 3,
   "version": "0.1",
-  "description": "Turns the page red when you click the icon",
-  "permissions": ["activeTab", "scripting"],
+  "description": "A simple accessibility tool",
+  "permissions": ["activeTab", "scripting", "storage", "tabs", "webNavigation"],
   "background": {
     "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "index.html"
   }
 }

@@ -1,3 +1,10 @@
+chrome.webNavigation.onCompleted.addListener(function (details) {
+  chrome.scripting.executeScript({
+    target: { tabId: details.tabId },
+    function: readPage
+  })
+})
+
 function reddenPage() {
   const body = document.body.innerHTML;
   const imgs = document.getElementsByTagName("img");
@@ -18,12 +25,3 @@ function reddenPage() {
       document.body.innerHTML = v.join("")
     })
 }
-
-chrome.action.onClicked.addListener((tab) => {
-  if (!tab.url.includes("chrome://")) {
-    chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      function: reddenPage,
-    });
-  }
-});
