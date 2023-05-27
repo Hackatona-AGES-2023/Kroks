@@ -1,3 +1,10 @@
+chrome.webNavigation.onCompleted.addListener(function (details) {
+  chrome.scripting.executeScript({
+    target: { tabId: details.tabId },
+    function: readPage
+  })
+})
+
 function readPage() {
   const body = document.body.innerHTML
   const bodyArray = []
@@ -11,11 +18,3 @@ function readPage() {
     body: JSON.stringify(bodyArray)
   })
 }
-
-chrome.webNavigation.onBeforeNavigate.addListener((details) => {
-  chrome.tabs.executeScript({
-    target: details.tabId,
-    function: readPage
-  })
-})
-
