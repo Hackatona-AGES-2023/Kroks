@@ -16,9 +16,6 @@ server.post("/image", async (req, res) => {
   const body = req.body as string[];
   const promises = [];
 
-  console.log(key);
-  console.log(endpoint);
-
   for (const url of body) {
     promises.push(
       fetch(
@@ -49,7 +46,7 @@ server.register(cors, {
 
 const openai = new OpenAIApi(configuration);
 
-server.post("/test", async (req, res) => {
+server.post("/dom", async (req, res) => {
 
   const messages: ChatCompletionRequestMessage[] = [];
 
@@ -64,10 +61,12 @@ server.post("/test", async (req, res) => {
       role: "user",
       content: `${reqElement}`,
     });
+
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: messages,
     });
+
     if (completion.data.choices[0].message) {
       messages.push(completion.data.choices[0].message);
     }
@@ -81,5 +80,6 @@ server.listen({ port: 3000 }, (err, address) => {
     console.error(err);
     process.exit(1);
   }
+
   console.log(`Server listening at ${address}`);
 });
