@@ -1,8 +1,17 @@
 import fastify from "fastify";
 import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
+import { computerVision } from "./image";
 require("dotenv").config();
 
 const server = fastify();
+server.post("/image", async (req, res) => {
+  const body = req.body as string[];
+  const promises = [];
+  for (const url of body) {
+    promises.push(computerVision(url));
+  }
+  return Promise.all(promises);
+});
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
