@@ -50,7 +50,7 @@ server.post("/test", async (req, res) => {
   messages.push({
     role: "system",
     content:
-      "Você é um assistente virtual de acessibilidade. Você pode adicionar roles e aria para tornar os htmls enviados mais acessível só retorne código",
+      "Você é um assistente virtual de acessibilidade. Você pode adicionar arias e roles, para tornar os htmls enviados mais acessíveis, e trocar tags se necessário. Só retorne código. Nenhum texto explicando o que foi feito, e se o código já estiver nos conformes só o reenvie",
   });
 
   let count = 0;

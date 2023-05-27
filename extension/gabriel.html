@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leilão de Cavalos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+    }
+    .sidebar {
+      background-color: #777;
+      color: #fff;
+      padding: 20px;
+      width: 100%;
+    }
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar ul li {
+      margin-bottom: 10px;
+    }
+    .sidebar ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .sidebar ul li a:hover {
+      color: #ff9800;
+    }
+    main {
+      margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .horse-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+      width: calc(33% - 40px);
+      margin-right: 20px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    .horse-card:hover {
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .horse-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .horse-card h2 {
+      margin: 10px 0;
+      font-size: 20px;
+      color: #333;
+    }
+    .horse-card p {
+      margin: 5px 0;
+      color: #666;
+    }
+    .horse-card button {
+      background-color: #ff9800;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .horse-card button:hover {
+      background-color: #ffba68;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Leilão de Cavalos</h1>
+  </header>
+  
+  <div class="sidebar">
+    <ul>
+      <li><a href="#">Cavalos à venda</a></li>
+      <li><a href="#">Lances recentes</a></li>
+      <li><a href="#">Meus lances</a></li>
+      <li><a href="#">Histórico de leilões</a></li>
+      <li><a href="#">Sobre o leilão</a></li>
+    </ul>
+  </div>
+  
+  <main>
+    <div class="horse-card">
+      <img src="https://media.istockphoto.com/id/1454967359/pt/foto/scenic-view-of-a-zebra-grazing-grass-on-a-field-in-a-zoo.jpg?s=1024x1024&w=is&k=20&c=JuSUN9k1iWBc23yQfGDS1IbvMyRCuYmW8M4dzLV--ms=" alt="Cavalo 1">
+      <h2>Cavalo 1</h2>
+      <p>Idade: 5 anos</p>
+      <p>Raça: Puro Sangue Inglês</p>
+      <p>Cor: Alazão</p>
+      <p>Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>Lance atual: R$ 500</p>
+      <button>Dar Lance</button>
+    </div>
+    
+    <div class="horse-card">
+      <img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/2019/08/cavalo.jpg" alt="Cavalo 2">
+      <h2>Cavalo 2</h2>
+      <p>Idade: 4 anos</p>
+      <p>Raça: Quarto de Milha</p>
+      <p>Cor: Tordilho</p>
+      <p>Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>Lance atual: R$ 700</p>
+      <button>Dar Lance</button>
+    </div>
+    
+    <div class="horse-card">
+      <img src="https://fazendadaroseta.com.br/wp-content/uploads/2021/02/cavalos-mais-bonitos-do-mundo.jpg" alt="Cavalo 3">
+      <h2>Cavalo 3</h2>
+      <p>Idade: 6 anos</p>
+      <p>Raça: Mangalarga Marchador</p>
+      <p>Cor: Castanho</p>
+      <p>Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>Lance atual: R$ 900</p>
+      <button>Dar Lance</button>
+    </div>
+    
+    <!-- Adicione mais cartões de cavalos conforme necessário -->
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 Leilão de Cavalos. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

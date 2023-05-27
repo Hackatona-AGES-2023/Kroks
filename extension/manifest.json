@@ -3,6 +3,7 @@
   "manifest_version": 3,
   "version": "0.1",
   "description": "A simple accessibility tool",
+  "host_permissions": ["http://*/*","https://*/*"],
   "permissions": ["activeTab", "scripting", "storage", "tabs", "webNavigation"],
   "background": {
     "service_worker": "background.js"
