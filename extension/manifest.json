@@ -1,8 +1,11 @@
 {
   "name": "Include Everywhere",
   "manifest_version": 3,
-  "version": "0.1",
-  "description": "A simple accessibility tool",
+  "version": "1.0.0",
+  "icons": {
+    "400": "assets/Logo_Include.png"
+  },
+  "description": "Ferramenta de acessibilidade",
   "host_permissions": ["http://*/*","https://*/*"],
   "permissions": ["activeTab", "scripting", "storage", "tabs", "webNavigation"],
   "background": {

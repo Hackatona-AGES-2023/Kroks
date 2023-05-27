@@ -14,8 +14,6 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 });
 
 function start() {
-  console.log('Página carregada...')
-  
   const imgs = document.getElementsByTagName("img");
   const imageUrls = [];
 
@@ -34,8 +32,10 @@ function start() {
       imgs[i].alt = v[i];
       imgs[i].src = ""
     }
+
     const body = document.body.innerHTML;
-    fetch("http://localhost:3000/test", {
+
+    fetch("http://localhost:3000/dom", {
       method: "POST",
       body: JSON.stringify([body]),    
       headers: {
@@ -49,6 +49,7 @@ function start() {
           currImages[i].src = imageUrls[i]
         }
     }).catch(e => console.log(e))
+
     for (let i = 0; i < imgs.length; i++) {
       imgs[i].src = imageUrls[i]
     }

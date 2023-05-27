@@ -16,9 +16,6 @@ server.post("/image", async (req, res) => {
   const body = req.body as string[];
   const promises = [];
 
-  console.log(key)
-  console.log(endpoint)
-
   for (const url of body) {
     promises.push(fetch(endpoint + '/vision/v3.2/analyze?visualFeatures=Description&language=pt', {
       method: 'POST',
@@ -26,11 +23,13 @@ server.post("/image", async (req, res) => {
         'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': key ?? ''
       },
+
       body: JSON.stringify({
         url
       })
     }));
   }
+
   const responses =  await Promise.all(promises)
   const jsons = await Promise.all(responses.map((r) => r.json()));
 
@@ -44,7 +43,7 @@ server.register(cors, {
 
 const openai = new OpenAIApi(configuration);
 
-server.post("/test", async (req, res) => {
+server.post("/dom", async (req, res) => {
   const messages: ChatCompletionRequestMessage[] = [];
 
   messages.push({
@@ -60,11 +59,12 @@ server.post("/test", async (req, res) => {
       role: "user",
       content: `${reqElement}`,
     });
-    console.log(count++);
+
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: messages,
     });
+
     if (completion.data.choices[0].message) {
       messages.push(completion.data.choices[0].message);
     }
@@ -78,5 +78,6 @@ server.listen({ port: 3000 }, (err, address) => {
     console.error(err);
     process.exit(1);
   }
+
   console.log(`Server listening at ${address}`);
 });
