@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
   <title>Leilão de Cavalos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -74,7 +76,7 @@
       margin: 5px 0;
       color: #666;
     }
-    .horse-card button {
+    .horse-card .bid {
       background-color: #ff9800;
       color: #fff;
       border: none;
@@ -83,7 +85,7 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
-    .horse-card button:hover {
+    .horse-card .bid:hover {
       background-color: #ffba68;
     }
     footer {
@@ -111,36 +113,36 @@
   
   <main>
     <div class="horse-card">
-      <img src="https://media.istockphoto.com/id/1454967359/pt/foto/scenic-view-of-a-zebra-grazing-grass-on-a-field-in-a-zoo.jpg?s=1024x1024&w=is&k=20&c=JuSUN9k1iWBc23yQfGDS1IbvMyRCuYmW8M4dzLV--ms=" alt="Cavalo 1">
+      <img src="https://fazendadaroseta.com.br/wp-content/uploads/2021/02/cavalos-mais-bonitos-do-mundo.jpg" alt="Cavalo 1">
       <h2>Cavalo 1</h2>
       <p>Idade: 5 anos</p>
       <p>Raça: Puro Sangue Inglês</p>
       <p>Cor: Alazão</p>
       <p>Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <p>Lance atual: R$ 500</p>
-      <button>Dar Lance</button>
+      <button class="bid">Dar Lance</button>
     </div>
     
     <div class="horse-card">
-      <img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/2019/08/cavalo.jpg" alt="Cavalo 2">
+        <img src="https://media.istockphoto.com/id/1454967359/pt/foto/scenic-view-of-a-zebra-grazing-grass-on-a-field-in-a-zoo.jpg?s=1024x1024&w=is&k=20&c=JuSUN9k1iWBc23yQfGDS1IbvMyRCuYmW8M4dzLV--ms=" alt="Cavalo 2">
       <h2>Cavalo 2</h2>
       <p>Idade: 4 anos</p>
       <p>Raça: Quarto de Milha</p>
       <p>Cor: Tordilho</p>
       <p>Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <p>Lance atual: R$ 700</p>
-      <button>Dar Lance</button>
+      <button class="bid">Dar Lance</button>
     </div>
     
     <div class="horse-card">
-      <img src="https://fazendadaroseta.com.br/wp-content/uploads/2021/02/cavalos-mais-bonitos-do-mundo.jpg" alt="Cavalo 3">
+      <img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/2019/08/cavalo.jpg" alt="Cavalo 3">
       <h2>Cavalo 3</h2>
       <p>Idade: 6 anos</p>
       <p>Raça: Mangalarga Marchador</p>
       <p>Cor: Castanho</p>
       <p>Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <p>Lance atual: R$ 900</p>
-      <button>Dar Lance</button>
+      <button class="bid">Dar Lance</button>
     </div>
     
     <!-- Adicione mais cartões de cavalos conforme necessário -->
